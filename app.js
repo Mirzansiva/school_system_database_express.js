@@ -8,6 +8,13 @@ import dsdivisionsRoutes from "./routes/dsdivision.routes.js";
 import examsRoutes from "./routes/exams.routes.js";
 import familiesRoutes from "./routes/families.routes.js";
 import gndivisionsRoutes from "./routes/gndivisions.routes.js";
+import gradesRoutes from "./routes/grades.routes.js";
+import housesRoutes from "./routes/houses.routes.js";
+import marksRoutes from "./routes/marks.routes.js";
+import provincesRoutes from "./routes/provinces.routes.js";
+import student_subjectsRoutes from "./routes/student_subjects.routes.js";
+import subject_teacherRoutes from "./routes/subject_teacher.routes.js";
+import subjectsRoutes from "./routes/subjects.routes.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,6 +28,13 @@ app.use("/api/dsdivisions", dsdivisionsRoutes);
 app.use("/api/exams", examsRoutes);
 app.use("/api/families", familiesRoutes);
 app.use("/api/gndivisions", gndivisionsRoutes);
+app.use("/api/grades", gradesRoutes);
+app.use("/api/houses", housesRoutes);
+app.use("/api/marks", marksRoutes);
+app.use("/api/provinces", provincesRoutes);
+app.use("/api/student_subjects", student_subjectsRoutes);
+app.use("/api/subject_teachers", subject_teacherRoutes);
+app.use("/api/subjects", subjectsRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
