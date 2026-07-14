@@ -16,8 +16,7 @@ import student_subjectsRoutes from "./routes/student_subjects.routes.js";
 import subject_teacherRoutes from "./routes/subject_teacher.routes.js";
 import subjectsRoutes from "./routes/subjects.routes.js";
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+const app = express()
 
 app.use(express.json());
 app.use("/api/addresses", addressesRoutes);
@@ -36,6 +35,6 @@ app.use("/api/student_subjects", student_subjectsRoutes);
 app.use("/api/subject_teachers", subject_teacherRoutes);
 app.use("/api/subjects", subjectsRoutes);
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.listen(3000, () => {
+    console.log(`Server is running on port 3000`);
 });
