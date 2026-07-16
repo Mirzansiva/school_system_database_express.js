@@ -1,9 +1,9 @@
 import express from "express";
-import connection from './config/db.js';
+import mydb from "./config/db.js";
 import studentRoutes from "./routes/student.routes.js";
 import teacherRoutes from "./routes/teacher.routes.js";
 import addressesRoutes from "./routes/addresses.routes.js";
-import districrtRoutes from "./routes/districts.routes.js";
+import districtsRoutes from "./routes/districts.routes.js";
 import dsdivisionsRoutes from "./routes/dsdivision.routes.js";
 import examsRoutes from "./routes/exams.routes.js";
 import familiesRoutes from "./routes/families.routes.js";
@@ -23,7 +23,7 @@ app.use(express.json());
 app.use("/api/addresses", addressesRoutes);
 app.use("/api/students", studentRoutes);
 app.use("/api/teachers", teacherRoutes);
-app.use("/api/districts", districrtRoutes);
+app.use("/api/districts", districtsRoutes);
 app.use("/api/dsdivisions", dsdivisionsRoutes);
 app.use("/api/exams", examsRoutes);
 app.use("/api/families", familiesRoutes);
@@ -43,6 +43,23 @@ app.get("/", (req, res) => {
             message: "Welcome to Express"
         }
     );
+});
+
+
+app.get("/students", (req, res) => {
+    mydb.query("SELECT * FROM students", (err, result) => {
+        if (err) throw err;
+        res.render("student/index", { students: result });
+    });
+
+});
+
+app.get("/students/:id", (req, res) => {
+    mydb.query("SELECT * FROM students WHERE id = ?", [req.params.id], (err, result) => {
+        if (err) throw err;
+        res.render("student/show", { student: result[0] });
+    });
+
 });
 
 
