@@ -17,6 +17,7 @@ import subject_teacherRoutes from "./routes/subject_teacher.routes.js";
 import subjectsRoutes from "./routes/subjects.routes.js";
 
 const app = express()
+app.set("view engine","ejs");
 
 app.use(express.json());
 app.use("/api/addresses", addressesRoutes);
@@ -34,6 +35,16 @@ app.use("/api/provinces", provincesRoutes);
 app.use("/api/student_subjects", student_subjectsRoutes);
 app.use("/api/subject_teachers", subject_teacherRoutes);
 app.use("/api/subjects", subjectsRoutes);
+
+app.get("/", (req, res) => {
+    res.render("index",
+        {
+            title: "Express",
+            message: "Welcome to Express"
+        }
+    );
+});
+
 
 app.listen(3000, () => {
     console.log(`Server is running on port 3000`);

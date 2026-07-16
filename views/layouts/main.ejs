@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contant {
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .footer {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <table width="100%">
+        <tr class="header">
+            <td colspan="2" height="100" align="center">
+                <h1>Student Management System</h1>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%" height="400" valign="top">
+                <ul>
+                    <li><a href="/students">Students</a></li>
+                    <li><a href="/students/new">Add Student</a></li>
+                    <li><a href="/grades">Grades</a></li>
+                    <li><a href="/grades/new">Add Grade</a></li>
+                    <li><a href="/subjects">Subjects</a></li>
+                    <li><a href="/subjects/new">Add Subject</a></li>
+                </ul>
+            </td>
+            <td width="80%" height="400" valign="top" class="contant">
+                <h2>Welcome to the Student Management System</h2>
+                <%- body %>
+            </td>
+        </tr>
+        <tr class="footer" width="100%">
+            <td colspan="2" height="50" align="center">
+                <h3>Footer</h3>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
