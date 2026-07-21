@@ -4,55 +4,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student Management System</title>
     <style>
-        .contant {
-            padding: 20px;
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: #222;
             background-color: #f2f2f2;
         }
 
         .header {
             background-color: #4CAF50;
             color: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .layout {
+            display: flex;
+            align-items: flex-start;
+            min-height: calc(100vh - 140px);
+        }
+
+        .sidebar {
+            width: 220px;
+            flex-shrink: 0;
+            background-color: #ffffff;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 8px 10px;
+            border-radius: 4px;
+        }
+
+        .sidebar a:hover {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .content {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .content h2 {
+            margin-top: 0;
+        }
+
+        table.data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            margin-top: 15px;
+        }
+
+        table.data-table th,
+        table.data-table td {
+            border: 1px solid #ddd;
+            padding: 10px 14px;
+            text-align: left;
+        }
+
+        table.data-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        table.data-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .action-links {
+            white-space: nowrap;
+        }
+
+        .action-links a {
+            margin-right: 8px;
+            text-decoration: none;
+            color: #2e7d32;
+            font-weight: 500;
+        }
+
+        .action-links a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-create {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 8px 14px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .btn-create:hover {
+            background-color: #43a047;
+        }
+
+        form table {
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        form table td {
+            padding: 8px;
+        }
+
+        form input[type="text"] {
+            padding: 6px 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 250px;
+        }
+
+        form button {
+            padding: 8px 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #43a047;
         }
 
         .footer {
             background-color: #4CAF50;
             color: white;
+            text-align: center;
+            padding: 14px;
         }
     </style>
 </head>
 
 <body>
-    <table width="100%">
-        <tr class="header">
-            <td colspan="2" height="100" align="center">
-                <h1>Student Management System</h1>
-            </td>
-        </tr>
-        <tr>
-            <td width="20%" height="400" valign="top">
-                <ul>
-                    <li><a href="/students">Students</a></li>
-                    <li><a href="/students/new">Add Student</a></li>
-                    <li><a href="/grades">Grades</a></li>
-                    <li><a href="/grades/new">Add Grade</a></li>
-                    <li><a href="/subjects">Subjects</a></li>
-                    <li><a href="/subjects/new">Add Subject</a></li>
-                </ul>
-            </td>
-            <td width="80%" height="400" valign="top" class="contant">
-                <h2>Welcome to the Student Management System</h2>
-                <%- body %>
-            </td>
-        </tr>
-        <tr class="footer" width="100%">
-            <td colspan="2" height="50" align="center">
-                <h3>Footer</h3>
-            </td>
-        </tr>
-    </table>
+    <div class="header">
+        <h1>Student Management System</h1>
+    </div>
 
+    <div class="layout">
+        <div class="sidebar">
+            <ul>
+                <li><a href="/students">Students</a></li>
+                <li><a href="/students/create">Add Student</a></li>
+                <li><a href="/grades">Grades</a></li>
+                <li><a href="/grades/new">Add Grade</a></li>
+                <li><a href="/subjects">Subjects</a></li>
+                <li><a href="/subjects/new">Add Subject</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <%- body %>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p style="margin:0;">Footer</p>
+    </div>
 </body>
 
 </html>
