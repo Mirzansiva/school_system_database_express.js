@@ -14,6 +14,7 @@ app.get("/", (req, res) => {
     res.send("Welcome to the Student API");
 });
 
+// ALL STUDENT
 app.get("/students", (req, res) => {
     mydb.query("SELECT * FROM students", (err, result) => {
         if (err) throw err;
@@ -21,7 +22,17 @@ app.get("/students", (req, res) => {
     });
 });
 
-// IMPORTANT: /students/create ஆனது /students/:id க்கு முன்னாடி இருக்கணும்
+
+// get by id
+app.get("/students/:id", (req, res) => {
+    mydb.query("SELECT * FROM students WHERE id = ?", [req.params.id], (err, result) => {
+        if (err) throw err;
+        res.render("student/show", { student: result[0] });
+    });
+});
+
+
+//post
 app.get("/students/create", (req, res) => {
     res.render("student/create");
 });
@@ -34,6 +45,7 @@ app.post("/students", (req, res) => {
     });
 });
 
+//update
 app.get("/students/:id/edit", (req, res) => {
     mydb.query("SELECT * FROM students WHERE id = ?", [req.params.id], (err, result) => {
         if (err) throw err;
@@ -49,12 +61,7 @@ app.post("/students/:id", (req, res) => {
     });
 });
 
-app.get("/students/:id", (req, res) => {
-    mydb.query("SELECT * FROM students WHERE id = ?", [req.params.id], (err, result) => {
-        if (err) throw err;
-        res.render("student/show", { student: result[0] });
-    });
-});
+
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
