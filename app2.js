@@ -4,7 +4,7 @@ import layout from "express-ejs-layouts";
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); // form data (create/update) padikka இது தேவை
+app.use(express.urlencoded({ extended: true })); 
 
 app.set("view engine", "ejs");
 app.use(layout);
@@ -21,16 +21,6 @@ app.get("/students", (req, res) => {
         res.render("student/index", { students: result });
     });
 });
-
-
-// get by id
-app.get("/students/:id", (req, res) => {
-    mydb.query("SELECT * FROM students WHERE id = ?", [req.params.id], (err, result) => {
-        if (err) throw err;
-        res.render("student/show", { student: result[0] });
-    });
-});
-
 
 //post
 app.get("/students/create", (req, res) => {
@@ -61,7 +51,12 @@ app.post("/students/:id", (req, res) => {
     });
 });
 
-
+app.get("/students/:id", (req, res) => {
+    mydb.query("SELECT * FROM students WHERE id = ?", [req.params.id], (err, result) => {
+        if (err) throw err;
+        res.render("student/show", { student: result[0] });
+    });
+});
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
