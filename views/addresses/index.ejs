@@ -1,0 +1,46 @@
+<div class="space-y-4">
+  <div class="flex items-center justify-between">
+    <div>
+      <h2 class="text-2xl font-semibold text-slate-800">Addresses</h2>
+      <p class="text-sm text-slate-500">Manage all address records in one place.</p>
+    </div>
+    <a href="/api/addresses/create" class="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-emerald-700">Add New Address</a>
+  </div>
+
+  <div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+    <table class="min-w-full divide-y divide-slate-200">
+      <thead class="bg-emerald-50">
+        <tr>
+          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-emerald-700">ID</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-emerald-700">Village</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-emerald-700">Address</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-emerald-700">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-slate-100 bg-white">
+        <% if (addresses && addresses.length) { %>
+          <% addresses.forEach(function(address) { %>
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3 text-sm text-slate-700"><%= address.id %></td>
+              <td class="px-4 py-3 text-sm text-slate-700"><%= address.village || '-' %></td>
+              <td class="px-4 py-3 text-sm text-slate-700"><%= address.address || '-' %></td>
+              <td class="px-4 py-3">
+                <div class="flex flex-wrap gap-2">
+                  <a href="/api/addresses/<%= address.id %>" class="rounded-md border border-sky-500 px-3 py-1.5 text-sm text-sky-600 hover:bg-sky-50">View</a>
+                  <a href="/api/addresses/<%= address.id %>/edit" class="rounded-md border border-amber-500 px-3 py-1.5 text-sm text-amber-600 hover:bg-amber-50">Edit</a>
+                  <form action="/api/addresses/<%= address.id %>/delete" method="POST" class="inline">
+                    <button type="submit" class="rounded-md border border-rose-500 px-3 py-1.5 text-sm text-rose-600 hover:bg-rose-50">Delete</button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="4" class="px-4 py-8 text-center text-sm text-slate-500">No addresses found.</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>

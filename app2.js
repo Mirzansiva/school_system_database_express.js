@@ -2,6 +2,7 @@ import express from "express";
 import layout from "express-ejs-layouts";
 
 import studentRoutes from "./routes/student.routes.js";
+import addressesRoutes from "./routes/addresses.routes.js";
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/", studentRoutes);
+app.use("/api/addresses", addressesRoutes);
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
