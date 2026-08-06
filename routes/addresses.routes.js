@@ -6,6 +6,7 @@ import {
     show,
     edit,
     update,
+    destroyPage,
     destroy
 } from "../controller/addresses.controller.js";
 
@@ -14,6 +15,7 @@ const router = express.Router();
 router.get("/", index);
 router.get("/create", create);
 router.post("/", store);
+router.get("/:id/destroy", destroyPage);
 router.get("/:id", show);
 router.get("/:id/edit", edit);
 router.post("/:id", update);

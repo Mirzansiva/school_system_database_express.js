@@ -28,9 +28,7 @@
                 <div class="flex flex-wrap gap-2">
                   <a href="/api/addresses/<%= address.id %>" class="rounded-md border border-sky-500 px-3 py-1.5 text-sm text-sky-600 hover:bg-sky-50">View</a>
                   <a href="/api/addresses/<%= address.id %>/edit" class="rounded-md border border-amber-500 px-3 py-1.5 text-sm text-amber-600 hover:bg-amber-50">Edit</a>
-                  <form action="/api/addresses/<%= address.id %>/delete" method="POST" class="inline">
-                    <button type="submit" class="rounded-md border border-rose-500 px-3 py-1.5 text-sm text-rose-600 hover:bg-rose-50">Delete</button>
-                  </form>
+                  <a href="/api/addresses/<%= address.id %>/destroy" class="rounded-md border border-rose-500 px-3 py-1.5 text-sm text-rose-600 hover:bg-rose-50">Delete</a>
                 </div>
               </td>
             </tr>
