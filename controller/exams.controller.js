@@ -1,68 +1,80 @@
 import mydb from '../config/db.js';
 
 export const index = (req, res) => {
-	mydb.query("SELECT * FROM exams", (err, result) => {
-		if (err) throw err;
-		res.render("exams/index", { exams: result });
-	});
-}
+    mydb.query("SELECT * FROM exams", (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).render("exams/index", { exams: [], error: "Unable to load exams.", title: "Exams" });
+        }
+        res.render("exams/index", { exams: result, error: null, title: "Exams" });
+    });
+};
 
 export const create = (req, res) => {
-	res.render("exams/create");
-}
-
-export const store = (req, res) => {
-	const exam = {
-		name: req.body.name,
-		date: req.body.date || null,
-		description: req.body.description || null
-	};
-
-	mydb.query("INSERT INTO exams SET ?", exam, (err) => {
-		if (err) throw err;
-		res.redirect('/api/exams');
-	});
+    res.render("exams/create", { title: "Add Exam" });
 };
 
 export const show = (req, res) => {
-	mydb.query("SELECT * FROM exams WHERE id = ?", [req.params.id], (err, result) => {
-		if (err) throw err;
-		res.render('exams/show', { exam: result[0] });
-	});
-}
+    mydb.query("SELECT * FROM exams WHERE id = ?", [req.params.id], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to fetch exam");
+        }
+        res.render("exams/show", { exam: result[0], title: "Exam Details" });
+    });
+};
 
 export const edit = (req, res) => {
-	mydb.query("SELECT * FROM exams WHERE id = ?", [req.params.id], (err, result) => {
-		if (err) throw err;
-		res.render('exams/update', { exam: result[0] });
-	});
-}
+    mydb.query("SELECT * FROM exams WHERE id = ?", [req.params.id], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to fetch exam");
+        }
+        res.render("exams/update", { exam: result[0], title: "Edit Exam" });
+    });
+};
+
+export const deleteView = (req, res) => {
+    mydb.query("SELECT * FROM exams WHERE id = ?", [req.params.id], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to fetch exam");
+        }
+        res.render("exams/delete", { exam: result[0], title: "Delete Exam" });
+    });
+};
+
+export const store = (req, res) => {
+    const exam = req.body;
+    mydb.query("INSERT INTO exams SET ?", exam, (err) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to create exam");
+        }
+        res.redirect("/exams");
+    });
+};
 
 export const update = (req, res) => {
-	const exam = {
-		name: req.body.name,
-		date: req.body.date || null,
-		description: req.body.description || null
-	};
-
-	mydb.query("UPDATE exams SET ? WHERE id = ?", [exam, req.params.id], (err) => {
-		if (err) throw err;
-		res.redirect(`/api/exams/${req.params.id}`);
-	});
-}
-
-export const destroyPage = (req, res) => {
-	mydb.query("SELECT * FROM exams WHERE id = ?", [req.params.id], (err, result) => {
-		if (err) throw err;
-		if (!result[0]) return res.redirect('/api/exams');
-		res.render('exams/destroy', { exam: result[0] });
-	});
-}
+    const exam = req.body;
+    mydb.query("UPDATE exams SET ? WHERE id = ?", [exam, req.params.id], (err) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to update exam");
+        }
+        res.redirect("/exams");
+    });
+};
 
 export const destroy = (req, res) => {
-	mydb.query("DELETE FROM exams WHERE id = ?", [req.params.id], (err) => {
-		if (err) throw err;
-		res.redirect('/api/exams');
-	});
-}
+    mydb.query("DELETE FROM exams WHERE id = ?", [req.params.id], (err) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to delete exam");
+        }
+        res.redirect("/exams");
+    });
+};
+
+
 

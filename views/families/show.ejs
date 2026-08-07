@@ -1,0 +1,12 @@
+
+<h2>Family Details</h2>
+
+<div class="card shadow-sm">
+  <div class="card-body">
+    <p><strong>ID:</strong> <%= family.id %></p>
+    <p><strong>Mobile Number:</strong> <%= family.mobile_number %></p>
+    <p><strong>Father First Name:</strong> <%= family.fa_first_name %></p>
+    <a href="/families" class="btn btn-secondary">Back</a>
+    <a href="/families/<%= family.id %>/edit" class="btn btn-warning">Edit</a>
+  </div>
+</div>

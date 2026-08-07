@@ -1,0 +1,12 @@
+<h2>Edit Address</h2>
+<form action="/addresses/<%= address.gn_id %>" method="POST">
+  <div>
+    <label for="gn_code">GN Code</label>
+    <input type="text" id="gn_code" name="gn_code" value="<%= address.gn_code %>" required>
+  </div>
+  <div>
+    <label for="gn_id">GN ID</label>
+    <input type="text" id="gn_id" name="gn_id" value="<%= address.gn_id %>" required>
+  </div>
+  <button type="submit">Update Address</button>
+</form>

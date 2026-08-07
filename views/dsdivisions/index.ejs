@@ -1,43 +1,28 @@
-<div class="space-y-6">
-  <div class="flex items-center justify-between">
-    <div>
-      <h2 class="text-2xl font-semibold text-slate-800">DS Divisions</h2>
-      <p class="text-sm text-slate-500">Manage DS division records.</p>
-    </div>
-    <a href="/api/dsdivisions/create" class="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-emerald-700">Add DS Division</a>
-  </div>
 
-  <div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-    <table class="min-w-full divide-y divide-slate-200">
-      <thead class="bg-emerald-50">
-        <tr>
-          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-emerald-700">ID</th>
-          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-emerald-700">Name</th>
-          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-emerald-700">District ID</th>
-          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-emerald-700">Actions</th>
-        </tr>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>DS Divisions</h2>
+  <a href="/dsdivisions/new" class="btn btn-primary">Add DS Division</a>
+</div>
+
+<div class="card shadow-sm">
+  <div class="card-body">
+    <table class="table table-striped mb-0">
+      <thead>
+        <tr><th>ID</th><th>Name</th><th>Actions</th></tr>
       </thead>
-      <tbody class="divide-y divide-slate-100 bg-white">
-        <% if (dsdivisions && dsdivisions.length) { %>
-          <% dsdivisions.forEach(function(item) { %>
-            <tr class="hover:bg-slate-50">
-              <td class="px-4 py-3 text-sm text-slate-700"><%= item.id %></td>
-              <td class="px-4 py-3 text-sm text-slate-700"><%= item.name || item.ds_name || '-' %></td>
-              <td class="px-4 py-3 text-sm text-slate-700"><%= item.district_id || '-' %></td>
-              <td class="px-4 py-3">
-                <div class="flex flex-wrap gap-2">
-                  <a href="/api/dsdivisions/<%= item.id %>" class="rounded-md border border-sky-500 px-3 py-1.5 text-sm text-sky-600 hover:bg-sky-50">View</a>
-                  <a href="/api/dsdivisions/<%= item.id %>/edit" class="rounded-md border border-amber-500 px-3 py-1.5 text-sm text-amber-600 hover:bg-amber-50">Edit</a>
-                  <a href="/api/dsdivisions/<%= item.id %>/destroy" class="rounded-md border border-rose-500 px-3 py-1.5 text-sm text-rose-600 hover:bg-rose-50">Delete</a>
-                </div>
-              </td>
-            </tr>
-          <% }) %>
-        <% } else { %>
+      <tbody>
+        <% dsdivisions.forEach((item) => { %>
           <tr>
-            <td colspan="4" class="px-4 py-8 text-center text-sm text-slate-500">No DS divisions found.</td>
+            <td><%= item.id %></td>
+            <td><%= item.name %></td>
+            <td>
+              <a href="/dsdivisions/<%= item.id %>" class="btn btn-sm btn-info">View</a>
+              <a href="/dsdivisions/<%= item.id %>/edit" class="btn btn-sm btn-warning">Edit</a>
+              <a href="/dsdivisions/<%= item.id %>/delete" class="btn btn-sm btn-danger">Delete</a>
+            </td>
           </tr>
-        <% } %>
+        <% }) %>
       </tbody>
     </table>
   </div>

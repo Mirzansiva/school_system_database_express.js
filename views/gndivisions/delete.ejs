@@ -1,0 +1,12 @@
+
+<h2>Delete GN Division</h2>
+
+<div class="card shadow-sm p-4">
+  <p>Are you sure you want to delete this GN division?</p>
+  <p><strong>ID:</strong> <%= gndivision.id %></p>
+  <p><strong>Name:</strong> <%= gndivision.name %></p>
+  <form action="/gndivisions/<%= gndivision.id %>/delete" method="POST">
+    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+    <a href="/gndivisions" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>

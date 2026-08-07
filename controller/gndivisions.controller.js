@@ -1,43 +1,80 @@
 import mydb from '../config/db.js';
 
 export const index = (req, res) => {
-    const q = 'SELECT * FROM gndivisions';
-    mydb.query(q, (err, data) => {
-        if (err) return res.json(err);
-        return res.status(200).json(data);
+    mydb.query("SELECT * FROM gndivisions", (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).render("gndivisions/index", { gndivisions: [], error: "Unable to load GN divisions.", title: "GN Divisions" });
+        }
+        res.render("gndivisions/index", { gndivisions: result, error: null, title: "GN Divisions" });
     });
-}
+};
+
+export const create = (req, res) => {
+    res.render("gndivisions/create", { title: "Add GN Division" });
+};
 
 export const show = (req, res) => {
-    const q = 'SELECT * FROM gndivisions WHERE id = ?';
-    mydb.query(q, [req.params.id], (err, data) => {
-        if (err) return res.json(err);
-        return res.status(200).json(data[0]);
+    mydb.query("SELECT * FROM gndivisions WHERE id = ?", [req.params.id], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to fetch gndivision");
+        }
+        res.render("gndivisions/show", { gndivision: result[0], title: "GN Division Details" });
     });
-}
+};
+
+export const edit = (req, res) => {
+    mydb.query("SELECT * FROM gndivisions WHERE id = ?", [req.params.id], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to fetch gndivision");
+        }
+        res.render("gndivisions/update", { gndivision: result[0], title: "Edit GN Division" });
+    });
+};
+
+export const deleteView = (req, res) => {
+    mydb.query("SELECT * FROM gndivisions WHERE id = ?", [req.params.id], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to fetch gndivision");
+        }
+        res.render("gndivisions/delete", { gndivision: result[0], title: "Delete GN Division" });
+    });
+};
 
 export const store = (req, res) => {
-    const q = 'INSERT INTO gndivisions (`gn_name`, `ds_division_id`) VALUES (?)';
-    const values = [req.body.gn_name, req.body.ds_division_id];
-    mydb.query(q, [values], (err, data) => {
-        if (err) return res.json(err);
-        return res.status(200).json({ message: 'GN Division created successfully', id: data.insertId });
+    const gndivision = req.body;
+    mydb.query("INSERT INTO gndivisions SET ?", gndivision, (err) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to create gndivision");
+        }
+        res.redirect("/gndivisions");
     });
-}
+};
 
 export const update = (req, res) => {
-    const q = 'UPDATE gndivisions SET `gn_name` = ?, `ds_division_id` = ? WHERE id = ?';
-    const values = [req.body.gn_name, req.body.ds_division_id, req.params.id];
-    mydb.query(q, values, (err, data) => {
-        if (err) return res.json(err);
-        return res.status(200).json({ message: 'GN Division updated successfully' });
+    const gndivision = req.body;
+    mydb.query("UPDATE gndivisions SET ? WHERE id = ?", [gndivision, req.params.id], (err) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to update gndivision");
+        }
+        res.redirect("/gndivisions");
     });
-}
+};
 
 export const destroy = (req, res) => {
-    const q = 'DELETE FROM gndivisions WHERE id = ?';
-    mydb.query(q, [req.params.id], (err, data) => {
-        if (err) return res.json(err);
-        return res.status(200).json({ message: 'GN Division deleted successfully' });
+    mydb.query("DELETE FROM gndivisions WHERE id = ?", [req.params.id], (err) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to delete gndivision");
+        }
+        res.redirect("/gndivisions");
     });
-}
+};
+
+
+

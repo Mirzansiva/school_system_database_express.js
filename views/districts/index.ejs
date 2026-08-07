@@ -1,45 +1,36 @@
-<div class="space-y-6">
-	<div class="flex items-center justify-between">
-		<div>
-			<h2 class="text-2xl font-semibold text-slate-800">Districts</h2>
-			<p class="text-sm text-slate-500">Manage district records.</p>
-		</div>
-		<a href="/api/districts/create" class="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-emerald-700">Add District</a>
-	</div>
-
-	<div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-		<table class="min-w-full divide-y divide-slate-200">
-			<thead class="bg-emerald-50">
-				<tr>
-					<th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-emerald-700">ID</th>
-					<th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-emerald-700">Name</th>
-					<th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-emerald-700">Province ID</th>
-					<th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-emerald-700">Actions</th>
-				</tr>
-			</thead>
-			<tbody class="divide-y divide-slate-100 bg-white">
-				<% if (districts && districts.length) { %>
-					<% districts.forEach(function(district) { %>
-						<tr class="hover:bg-slate-50">
-							<td class="px-4 py-3 text-sm text-slate-700"><%= district.id %></td>
-							<td class="px-4 py-3 text-sm text-slate-700"><%= district.name || district.district_name || '-' %></td>
-							<td class="px-4 py-3 text-sm text-slate-700"><%= district.province_id || '-' %></td>
-							<td class="px-4 py-3">
-								<div class="flex flex-wrap gap-2">
-									<a href="/api/districts/<%= district.id %>" class="rounded-md border border-sky-500 px-3 py-1.5 text-sm text-sky-600 hover:bg-sky-50">View</a>
-									<a href="/api/districts/<%= district.id %>/edit" class="rounded-md border border-amber-500 px-3 py-1.5 text-sm text-amber-600 hover:bg-amber-50">Edit</a>
-									<a href="/api/districts/<%= district.id %>/destroy" class="rounded-md border border-rose-500 px-3 py-1.5 text-sm text-rose-600 hover:bg-rose-50">Delete</a>
-								</div>
-							</td>
-						</tr>
-					<% }) %>
-				<% } else { %>
-					<tr>
-						<td colspan="4" class="px-4 py-8 text-center text-sm text-slate-500">No districts found.</td>
-					</tr>
-				<% } %>
-			</tbody>
-		</table>
-	</div>
+<div class="topbar">
+    <h2>All Districts</h2>
+    <a class="button" href="/districts/new">Add District</a>
 </div>
 
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Province ID</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+
+    <% if (districts && districts.length) { %>
+        <% districts.forEach(district => { %>
+            <tr>
+                <td><%= district.id %></td>
+                <td><%= district.province_id %></td>
+                <td><%= district.code %></td>
+                <td><%= district.name %></td>
+                <td>
+                    <a href="/districts/<%= district.id %>">Show</a>
+                    |
+                    <a href="/districts/<%= district.id %>/edit">Edit</a>
+                    |
+                    <a href="/districts/<%= district.id %>/delete">Delete</a>
+                </td>
+            </tr>
+        <% }) %>
+    <% } else { %>
+        <tr>
+            <td colspan="5">No districts found.</td>
+        </tr>
+    <% } %>
+</table>

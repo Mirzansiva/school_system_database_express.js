@@ -1,15 +1,15 @@
-import express from 'express';
-import { index, create, store, destroyPage, show, edit, update, destroy } from '../controller/families.controller.js';
+import express from "express";
+import { index, create, show, edit, deleteView, store, update, destroy } from "../controller/families.controller.js";
 
 const router = express.Router();
 
-router.get('/', index);
-router.get('/create', create);
-router.post('/', store);
-router.get('/:id/destroy', destroyPage);
-router.get('/:id', show);
-router.get('/:id/edit', edit);
-router.post('/:id', update);
-router.post('/:id/delete', destroy);
+router.get("/new", create);
+router.get("/:id/edit", edit);
+router.get("/:id/delete", deleteView);
+router.get("/", index);
+router.get("/:id", show);
+router.post("/", store);
+router.post("/:id", update);
+router.post("/:id/delete", destroy);
 
 export default router;

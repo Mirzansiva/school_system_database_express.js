@@ -1,0 +1,12 @@
+<h2>Delete District</h2>
+
+<p><strong>Province ID:</strong> <%= district.province_id %></p>
+<p><strong>Code:</strong> <%= district.code %></p>
+<p><strong>Name:</strong> <%= district.name %></p>
+
+<h3>Do you want to delete this record?</h3>
+
+<form action="/districts/<%= district.id %>/delete" method="POST">
+    <button type="submit">Yes</button>
+</form>
+<p><a href="/districts">No</a></p>

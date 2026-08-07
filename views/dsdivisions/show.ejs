@@ -1,29 +1,11 @@
-<div class="mx-auto max-w-2xl space-y-4 py-10">
-  <div class="text-center">
-    <h2 class="text-2xl font-semibold text-slate-800">DS Division Details</h2>
-    <p class="text-sm text-slate-500">Detailed information for this DS division.</p>
-  </div>
 
-  <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-    <div class="grid gap-4 md:grid-cols-2">
-      <div>
-        <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">ID</p>
-        <p class="mt-1 text-base text-slate-700"><%= dsdivision.id %></p>
-      </div>
-      <div>
-        <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">Name</p>
-        <p class="mt-1 text-base text-slate-700"><%= dsdivision.name || dsdivision.ds_name || '-' %></p>
-      </div>
-      <div class="md:col-span-2">
-        <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">District ID</p>
-        <p class="mt-1 text-base text-slate-700"><%= dsdivision.district_id || '-' %></p>
-      </div>
-    </div>
-  </div>
+<h2>DS Division Details</h2>
 
-  <div class="flex flex-wrap justify-center gap-3">
-    <a href="/api/dsdivisions" class="rounded-lg bg-slate-700 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800">Back</a>
-    <a href="/api/dsdivisions/<%= dsdivision.id %>/edit" class="rounded-lg bg-amber-600 px-4 py-2 text-sm font-medium text-white hover:bg-amber-700">Edit</a>
-    <a href="/api/dsdivisions/<%= dsdivision.id %>/destroy" class="rounded-lg bg-rose-600 px-4 py-2 text-sm font-medium text-white hover:bg-rose-700">Delete</a>
+<div class="card shadow-sm">
+  <div class="card-body">
+    <p><strong>ID:</strong> <%= dsdivision.id %></p>
+    <p><strong>Name:</strong> <%= dsdivision.name %></p>
+    <a href="/dsdivisions" class="btn btn-secondary">Back</a>
+    <a href="/dsdivisions/<%= dsdivision.id %>/edit" class="btn btn-warning">Edit</a>
   </div>
 </div>

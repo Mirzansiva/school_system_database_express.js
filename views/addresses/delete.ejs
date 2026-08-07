@@ -1,0 +1,6 @@
+<h2>Delete Address</h2>
+<p>Are you sure you want to delete <strong><%= address.gn_code %></strong>?</p>
+<form action="/addresses/<%= address.gn_id %>/delete" method="POST">
+  <button type="submit">Delete Address</button>
+</form>
+<p><a href="/addresses">Cancel</a></p>

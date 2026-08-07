@@ -1,12 +1,15 @@
 import express from "express";
-import {index, show, store, update, destroy} from '../controller/gndivisions.controller.js';
+import { index, create, show, edit, deleteView, store, update, destroy } from "../controller/gndivisions.controller.js";
 
 const router = express.Router();
 
+router.get("/new", create);
+router.get("/:id/edit", edit);
+router.get("/:id/delete", deleteView);
 router.get("/", index);
 router.get("/:id", show);
 router.post("/", store);
-router.put("/:id", update);
-router.delete("/:id", destroy);
+router.post("/:id", update);
+router.post("/:id/delete", destroy);
 
 export default router;
