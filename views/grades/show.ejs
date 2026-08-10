@@ -1,0 +1,18 @@
+<h2>Grade Details</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Grade Name</th>
+        <th>Grade Group</th>
+    </tr>
+
+    <tr>
+        <td><%= grade.id %></td>
+        <td><%= grade.grade_name %></td>
+        <td><%= grade.grade_group %></td>
+    </tr>
+</table>
+
+<p>
+    <a href="/grades/<%= grade.id %>/edit">Edit grade</a>
+</p>

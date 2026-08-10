@@ -12,6 +12,11 @@ import dsdivisionRoutes from "./routes/dsdivision.routes.js";
 import examsRoutes from "./routes/exams.routes.js";
 import familiesRoutes from "./routes/families.routes.js";
 import gndivisionsRoutes from "./routes/gndivisions.routes.js";
+import gradesRoutes from "./routes/grades.routes.js";
+import housesRoutes from "./routes/houses.routes.js";
+import provincesRoutes from "./routes/provinces.routes.js";
+import subjectsRoutes from "./routes/subjects.routes.js";
+import teacherRoutes from "./routes/teacher.routes.js";
 
 const app = express();
 app.use(express.json());
@@ -32,6 +37,15 @@ app.use("/dsdivisions", dsdivisionRoutes);
 app.use("/exams", examsRoutes);
 app.use("/families", familiesRoutes);
 app.use("/gndivisions", gndivisionsRoutes);
+app.use("/grades", gradesRoutes);
+app.use("/houses", housesRoutes);
+app.use("/provinces", provincesRoutes);
+app.use("/subjects", subjectsRoutes);
+app.use("/teachers", teacherRoutes);
+
+app.use((req, res) => {
+    res.status(404).send("Route not found");
+});
 
 
 app.listen(3000, () => {

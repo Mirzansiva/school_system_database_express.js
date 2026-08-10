@@ -1,0 +1,12 @@
+<h2>Delete Teacher</h2>
+
+<p><strong>Registration Number:</strong> <%= teacher.registration_number %></p>
+<p><strong>First Name:</strong> <%= teacher.first_name %></p>
+<p><strong>Last Name:</strong> <%= teacher.last_name %></p>
+
+<h3>Do you want to delete this record?</h3>
+
+<form action="/teachers/<%= teacher.id %>/delete" method="POST">
+    <button type="submit">Yes</button>
+</form>
+<p><a href="/teachers">No</a></p>

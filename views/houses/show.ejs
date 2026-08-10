@@ -1,0 +1,12 @@
+
+<h2>House Details</h2>
+
+<div class="card shadow-sm">
+  <div class="card-body">
+    <p><strong>ID:</strong> <%= house.id %></p>
+    <p><strong>House Name:</strong> <%= house.house_name %></p>
+    <p><strong>House Color:</strong> <%= house.house_color %></p>
+    <a href="/houses" class="btn btn-secondary">Back</a>
+    <a href="/houses/<%= house.id %>/edit" class="btn btn-warning">Edit</a>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="topbar">
+  <h2>Grades</h2>
+  <a class="button" href="/grades/new">Add Grade</a>
+</div>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>grade_name</th>
+    <th>grade#_group</th>
+    <th>Action</th>
+    </tr>
+
+  <% if (grades && grades.length) { %>
+    <% grades.forEach(grade=> { %>
+      <tr>
+        <td>
+          <%= grade.id %>
+        </td>
+      <td>
+          <%= grade.grade_name || '-' %>
+        </td>
+      <td>
+          <%= grade.grade_group || '-' %>
+        </td>
+      <td>
+        <a href="/grades/<%= grade.id %>">Show</a>
+        |
+        <a href="/grades/<%= grade.id %>/edit">Edit</a>
+        |
+        <a href="/grades/<%= grade.id %>/delete">Delete</a>
+        </td>
+      </tr>
+    <% }) %>
+      <% } else { %>
+        <tr>
+          <td colspan="5">No grades found.</td>
+          </tr>
+        <% } %>
+</table>

@@ -15,6 +15,7 @@ import provincesRoutes from "./routes/provinces.routes.js";
 import student_subjectsRoutes from "./routes/student_subjects.routes.js";
 import subject_teacherRoutes from "./routes/subject_teacher.routes.js";
 import subjectsRoutes from "./routes/subjects.routes.js";
+import provinceRoutes from "./routes/provinces.routes.js";
 
 const app = express()
 app.set("view engine","ejs");
@@ -35,6 +36,7 @@ app.use("/api/provinces", provincesRoutes);
 app.use("/api/student_subjects", student_subjectsRoutes);
 app.use("/api/subject_teachers", subject_teacherRoutes);
 app.use("/api/subjects", subjectsRoutes);
+app.use("/provinces", provinceRoutes);
 
 app.get("/", (req, res) => {
     res.render("index",

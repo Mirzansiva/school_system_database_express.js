@@ -1,0 +1,32 @@
+<div class="topbar">
+    <h2>All Subjects</h2>
+    <a class="button" href="/subjects/new">Add Subject</a>
+</div>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Subject Name</th>
+        <th>Action</th>
+    </tr>
+
+    <% if (subjects && subjects.length) { %>
+        <% subjects.forEach(subject => { %>
+            <tr>
+                <td><%= subject.id %></td>
+                <td><%= subject.subject_name %></td>
+                <td>
+                    <a href="/subjects/<%= subject.id %>">Show</a>
+                    |
+                    <a href="/subjects/<%= subject.id %>/edit">Edit</a>
+                    |
+                    <a href="/subjects/<%= subject.id %>/delete">Delete</a>
+                </td>
+            </tr>
+        <% }) %>
+    <% } else { %>
+        <tr>
+            <td colspan="3">No subjects found.</td>
+        </tr>
+    <% } %>
+</table>

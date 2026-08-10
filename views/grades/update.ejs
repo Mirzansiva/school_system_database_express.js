@@ -1,0 +1,15 @@
+<h2>Edit Grade</h2>
+
+<form action="/grades/<%= grade.id %>" method="POST">
+    <div>
+        <label for="grade_name">Grade Name</label>
+        <input type="text" id="grade_name" name="grade_name" value="<%= grade.grade_name %>" required>
+    </div>
+
+    <div>
+        <label for="grade_group">Grade Group</label>
+        <input type="text" id="grade_group" name="grade_group" value="<%= grade.grade_group %>" required>
+    </div>
+
+    <button type="submit">Update Grade</button>
+</form>
