@@ -1,5 +1,3 @@
-<form action="/students/<%= student.id %>" method="POST">
-
 <div class="px-4 sm:px-6 lg:px-8">
   <div class="sm:flex sm:items-center">
     <div class="sm:flex-auto">
@@ -33,8 +31,8 @@
             </tr>
             <tr>
               <div class="flex items-center justify-center gap-x-6">
-              <td><button type="button" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add student</button></td>>
-              </div> 
+              <td><a href="/students/"><button type="button" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Cancel</button></a></td>
+              <td><a href="/students/<%= student.id %>/edit"><button type="button" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Edit</button></a></td>            </div> 
             </tr>
           </tbody>
         </table>
