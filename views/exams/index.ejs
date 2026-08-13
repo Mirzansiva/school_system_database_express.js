@@ -1,4 +1,4 @@
-
+<!-- 
 
 <div class="d-flex justify-content-between align-items-center mb-3">
   <h2>Exams</h2>
@@ -12,18 +12,66 @@
         <tr><th>ID</th><th>Name</th><th>Actions</th></tr>
       </thead>
       <tbody>
-        <% exams.forEach((item) => { %>
+        <% exams.forEach((exam) => { %>
           <tr>
-            <td><%= item.id %></td>
-            <td><%= item.name %></td>
+            <td><%= exam.id %></td>
+            <td><%= exam.name %></td>
             <td>
-              <a href="/exams/<%= item.id %>" class="btn btn-sm btn-info">View</a>
-              <a href="/exams/<%= item.id %>/edit" class="btn btn-sm btn-warning">Edit</a>
-              <a href="/exams/<%= item.id %>/delete" class="btn btn-sm btn-danger">Delete</a>
+              <a href="/exams/<%= exam.id %>" class="btn btn-sm btn-info">View</a>
+              <a href="/exams/<%= exam.id %>/edit" class="btn btn-sm btn-warning">Edit</a>
+              <a href="/exams/<%= exam.id %>/delete" class="btn btn-sm btn-danger">Delete</a>
             </td>
           </tr>
         <% }) %>
       </tbody>
     </table>
+  </div>
+</div> -->
+
+
+
+
+
+<div class="px-4 sm:px-6 lg:px-8">
+  <div class="sm:flex sm:items-center">
+    <div class="sm:flex-auto">
+      <h1 class="text-base font-semibold text-gray-900">Exams</h1>
+      <p class="mt-2 text-sm text-gray-700">A list of all the exams in your account including their name, title, email and role.</p>
+    </div>
+    <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+      <a href="/exams/new"> <button type="button" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">+ Create Exam</button> </a>
+    </div>
+  </div>
+  <div class="mt-8 flow-root">
+    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+        <table class="relative min-w-full divide-y divide-gray-300">
+          <thead>
+            <tr>
+              <th scope="col" class="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3">ID</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Name</th>
+              <th scope="col" class="py-3.5 pr-4 pl-3 sm:pr-3">
+                <span class="sr-only">Edit</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white">
+            <% exams.forEach((exam) => { %>
+            <tr class="even:bg-gray-50">
+              <td class="py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-3"><%= exam.id %></td>
+              <td class="px-3 py-4 text-sm whitespace-nowrap text-gray-500"><%= exam.exam_name %></td>
+
+
+              <td class="py-4 pr-4 pl-3 text-right text-sm font-medium whitespace-nowrap sm:pr-3">
+                <a href="/exams/<%= exam.id %>" class="text-indigo-600 hover:text-indigo-900">Show<span class="sr-only">, Lindsay Walton</span></a>
+                <a href="/exams/<%= exam.id %>/edit" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span></a>
+                <a href="/exams/<%= exam.id %>/delete" class="text-indigo-600 hover:text-indigo-900">Delete<span class="sr-only">, Lindsay Walton</span></a>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

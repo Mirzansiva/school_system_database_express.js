@@ -51,3 +51,5 @@ app.use((req, res) => {
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
 });
+
+// npx @tailwindcss/cli -i ./public/css/input.css -o ./public/css/output.css --watch

@@ -1,36 +1,46 @@
-<div class="topbar">
-    <h2>All Districts</h2>
-    <a class="button" href="/districts/new">Add District</a>
-</div>
-
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Province ID</th>
-        <th>Code</th>
-        <th>Name</th>
-        <th>Action</th>
-    </tr>
-
-    <% if (districts && districts.length) { %>
-        <% districts.forEach(district => { %>
+<div class="px-4 sm:px-6 lg:px-8">
+  <div class="sm:flex sm:items-center">
+    <div class="sm:flex-auto">
+      <h1 class="text-base font-semibold text-gray-900">Districts</h1>
+      <p class="mt-2 text-sm text-gray-700">A list of all the districts in your account including their name, title, email and role.</p>
+    </div>
+    <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+      <a href="/districts/new"> <button type="button" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">+ Create District</button> </a>
+    </div>
+  </div>
+  <div class="mt-8 flow-root">
+    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+        <table class="relative min-w-full divide-y divide-gray-300">
+          <thead>
             <tr>
-                <td><%= district.id %></td>
-                <td><%= district.province_id %></td>
-                <td><%= district.code %></td>
-                <td><%= district.name %></td>
-                <td>
-                    <a href="/districts/<%= district.id %>">Show</a>
-                    |
-                    <a href="/districts/<%= district.id %>/edit">Edit</a>
-                    |
-                    <a href="/districts/<%= district.id %>/delete">Delete</a>
-                </td>
+              <th scope="col" class="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-3">ID</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Province ID</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Code</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Name</th>
+              <th scope="col" class="py-3.5 pr-4 pl-3 sm:pr-3">
+                <span class="sr-only">Edit</span>
+              </th>
             </tr>
-        <% }) %>
-    <% } else { %>
-        <tr>
-            <td colspan="5">No districts found.</td>
-        </tr>
-    <% } %>
-</table>
+          </thead>
+          <tbody class="bg-white">
+            <% districts.forEach(district=> { %>
+            <tr class="even:bg-gray-50">
+              <td class="py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-3"><%= district.id %></td>
+              <td class="px-3 py-4 text-sm whitespace-nowrap text-gray-500"><%= district.province_id %></td>
+              <td class="px-3 py-4 text-sm whitespace-nowrap text-gray-500"><%= district.code %></td>
+              <td class="px-3 py-4 text-sm whitespace-nowrap text-gray-500"><%= district.name %></td>
+
+              <td class="py-4 pr-4 pl-3 text-right text-sm font-medium whitespace-nowrap sm:pr-3">
+                <a href="/districts/<%= district.id %>" class="text-indigo-600 hover:text-indigo-900">Show<span class="sr-only">, Lindsay Walton</span></a>
+                <a href="/districts/<%= district.id %>/edit" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span></a>
+                <a href="/districts/<%= district.id %>/destroy" class="text-indigo-600 hover:text-indigo-900">Delete<span class="sr-only">, Lindsay Walton</span></a>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
