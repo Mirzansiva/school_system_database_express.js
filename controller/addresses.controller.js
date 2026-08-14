@@ -82,6 +82,25 @@ export const update = (req, res) => {
     );
 };
 
+
+// export const update = (req, res) => {
+
+//     const address = req.body;
+
+//     mydb.query(
+//         "UPDATE addresses SET ? WHERE gn_id=?",
+//         [address, req.params.id],
+//         (err, result) => {
+
+//             if (err) throw err;
+
+//             res.redirect("/addresses/" + req.params.id);
+
+//         }
+//     );
+
+// };
+
 export const destroy = (req, res) => {
     mydb.query("DELETE FROM addresses WHERE gn_id = ?", [req.params.id], (err) => {
         if (err) {

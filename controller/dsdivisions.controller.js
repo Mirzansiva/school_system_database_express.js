@@ -55,16 +55,37 @@ export const store = (req, res) => {
     });
 };
 
+// export const update = (req, res) => {
+//     const dsdivision = req.body;
+//     mydb.query("UPDATE dsdivisions SET ? WHERE id = ?", [dsdivision, req.params.id], (err) => {
+//         if (err) {
+//             console.error(err);
+//             return res.status(500).send("Failed to update dsdivision");
+//         }
+//         res.redirect("/dsdivisions");
+//     });
+// };
+
+
 export const update = (req, res) => {
+
     const dsdivision = req.body;
-    mydb.query("UPDATE dsdivisions SET ? WHERE id = ?", [dsdivision, req.params.id], (err) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).send("Failed to update dsdivision");
+
+    mydb.query(
+        "UPDATE dsdivisions SET ? WHERE id=?",
+        [dsdivision, req.params.id],
+        (err, result) => {
+
+            if (err) throw err;
+
+            res.redirect("/dsdivisions/" + req.params.id);
+
         }
-        res.redirect("/dsdivisions");
-    });
+    );
+
 };
+
+
 
 export const destroy = (req, res) => {
     mydb.query("DELETE FROM dsdivisions WHERE id = ?", [req.params.id], (err) => {

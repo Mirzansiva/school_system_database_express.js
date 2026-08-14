@@ -1,16 +1,181 @@
-import mydb from "../config/db.js";
+// import mydb from "../config/db.js";
+
+// export const index = (req, res) => {
+//     mydb.query("SELECT * FROM students", (err, result) => {
+//         if (err) throw err;
+//         res.render("student/index", {
+//             students: result
+//         });
+//     });
+// };
+
+// export const create = (req, res) => {
+//     res.render("student/create");
+// };
+
+// export const store = (req, res) => {
+
+//     const student = req.body;
+
+//     mydb.query(
+//         "INSERT INTO students SET ?",
+//         student,
+//         (err, result) => {
+
+//             if (err) throw err;
+
+//             res.redirect("/students");
+
+//         }
+//     );
+
+// };
+
+// export const edit = (req, res) => {
+
+//     mydb.query(
+//         "SELECT * FROM students WHERE id=?",
+//         [req.params.id],
+//         (err, result) => {
+
+//             if (err) throw err;
+
+//             res.render("student/update", {
+//                 student: result[0]
+//             });
+
+//         }
+//     );
+
+// };
+
+// export const update = (req, res) => {
+
+//     const student = req.body;
+
+//     mydb.query(
+//         "UPDATE students SET ? WHERE id=?",
+//         [student, req.params.id],
+//         (err, result) => {
+
+//             if (err) throw err;
+
+//             res.redirect("/students/" + req.params.id);
+
+//         }
+//     );
+
+// };
+
+// export const destroyPage = (req, res) => {
+
+//     mydb.query(
+//         "SELECT * FROM students WHERE id=?",
+//         [req.params.id],
+//         (err, result) => {
+
+//             if (err) throw err;
+
+//             if (!result[0]) {
+//                 return res.redirect("/students");
+//             }
+
+//             res.render("student/destroy", {
+//                 student: result[0]
+//             });
+
+//         }
+//     );
+
+// };
+
+// export const destroy = (req, res) => {
+
+//     mydb.query(
+//         "DELETE FROM students WHERE id=?",
+//         [req.params.id],
+//         (err, result) => {
+
+//             if (err) throw err;
+
+//             if (req.method === "DELETE") {
+//                 return res.json({
+//                     message: "Student deleted successfully"
+//                 });
+//             }
+
+//             res.redirect("/students");
+
+//         }
+//     );
+
+// };
+
+// export const show = (req, res) => {
+
+//     mydb.query(
+//         "SELECT * FROM students WHERE id=?",
+//         [req.params.id],
+//         (err, result) => {
+
+//             if (err) throw err;
+
+//             res.render("student/show", {
+//                 student: result[0]
+//             });
+
+//         }
+//     );
+
+// };
+
+
+
+
+import mydb from '../config/db.js';
 
 export const index = (req, res) => {
     mydb.query("SELECT * FROM students", (err, result) => {
-        if (err) throw err;
-        res.render("student/index", {
-            students: result
-        });
+        if (err) {
+            console.error(err);
+            return res.status(500).render("students/index", { students: [], error: "Unable to load students.", title: "Students" });
+        }
+        res.render("student/index", { students: result, error: null, title: "Students" });
     });
 };
 
 export const create = (req, res) => {
-    res.render("student/create");
+    res.render("student/create", { title: "Add Student" });
+};
+
+export const show = (req, res) => {
+    mydb.query("SELECT * FROM students WHERE id = ?", [req.params.id], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to fetch student");
+        }
+        res.render("student/show", { student: result[0], title: "Student Details" });
+    });
+};
+
+export const edit = (req, res) => {
+    mydb.query("SELECT * FROM students WHERE id = ?", [req.params.id], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to fetch student");
+        }
+        res.render("student/update", { student: result[0], title: "Edit Student" });
+    });
+};
+
+export const deleteView = (req, res) => {
+    mydb.query("SELECT * FROM students WHERE id = ?", [req.params.id], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to fetch student");
+        }
+        res.render("student/delete", { student: result[0], title: "Delete Student" });
+    });
 };
 
 export const store = (req, res) => {
@@ -31,23 +196,25 @@ export const store = (req, res) => {
 
 };
 
-export const edit = (req, res) => {
+// export const update = (req, res) => {
 
-    mydb.query(
-        "SELECT * FROM students WHERE id=?",
-        [req.params.id],
-        (err, result) => {
+//     const { gn_code } = req.body;
 
-            if (err) throw err;
+//     mydb.query(
+//         "UPDATE addresses SET gn_code = ? WHERE gn_id = ?",
+//         [gn_code, req.params.id],
+//         (err) => {
 
-            res.render("student/update", {
-                student: result[0]
-            });
+//             if (err) {
+//                 console.error(err);
+//                 return res.status(500).send("Failed to update address");
+//             }
 
-        }
-    );
+//             res.redirect("/addresses");
+//         }
+//     );
+// };
 
-};
 
 export const update = (req, res) => {
 
@@ -67,64 +234,15 @@ export const update = (req, res) => {
 
 };
 
-export const destroyPage = (req, res) => {
-
-    mydb.query(
-        "SELECT * FROM students WHERE id=?",
-        [req.params.id],
-        (err, result) => {
-
-            if (err) throw err;
-
-            if (!result[0]) {
-                return res.redirect("/students");
-            }
-
-            res.render("student/destroy", {
-                student: result[0]
-            });
-
-        }
-    );
-
-};
-
 export const destroy = (req, res) => {
-
-    mydb.query(
-        "DELETE FROM students WHERE id=?",
-        [req.params.id],
-        (err, result) => {
-
-            if (err) throw err;
-
-            if (req.method === "DELETE") {
-                return res.json({
-                    message: "Student deleted successfully"
-                });
-            }
-
-            res.redirect("/students");
-
+    mydb.query("DELETE FROM students WHERE id = ?", [req.params.id], (err) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Failed to delete student");
         }
-    );
-
+        res.redirect("/students");
+    });
 };
 
-export const show = (req, res) => {
 
-    mydb.query(
-        "SELECT * FROM students WHERE id=?",
-        [req.params.id],
-        (err, result) => {
 
-            if (err) throw err;
-
-            res.render("student/show", {
-                student: result[0]
-            });
-
-        }
-    );
-
-};

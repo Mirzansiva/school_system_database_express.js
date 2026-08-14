@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
     res.send("Welcome to Student API");
 });
 
-app.use("/", studentRoutes);
+app.use("/students", studentRoutes);
 app.use("/addresses", addressesRoutes);
 app.use("/districts", districtRoutes);
 app.use("/dsdivisions", dsdivisionRoutes);

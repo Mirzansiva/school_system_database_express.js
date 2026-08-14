@@ -55,15 +55,33 @@ export const store = (req, res) => {
     });
 };
 
+// export const update = (req, res) => {
+//     const { province_id, code, name } = req.body;
+//     mydb.query("UPDATE districts SET province_id = ?, code = ?, name = ? WHERE id = ?", [province_id, code, name, req.params.id], (err) => {
+//         if (err) {
+//             console.error(err);
+//             return res.status(500).send("Failed to update district");
+//         }
+//         res.redirect("/districts");
+//     });
+// };
+
 export const update = (req, res) => {
-    const { province_id, code, name } = req.body;
-    mydb.query("UPDATE districts SET province_id = ?, code = ?, name = ? WHERE id = ?", [province_id, code, name, req.params.id], (err) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).send("Failed to update district");
+
+    const district = req.body;
+
+    mydb.query(
+        "UPDATE districts SET ? WHERE id=?",
+        [district, req.params.id],
+        (err, result) => {
+
+            if (err) throw err;
+
+            res.redirect("/districts/" + req.params.id);
+
         }
-        res.redirect("/districts");
-    });
+    );
+
 };
 
 export const destroy = (req, res) => {

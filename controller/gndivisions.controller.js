@@ -55,15 +55,34 @@ export const store = (req, res) => {
     });
 };
 
+// export const update = (req, res) => {
+//     const gndivision = req.body;
+//     mydb.query("UPDATE gndivisions SET ? WHERE id = ?", [gndivision, req.params.id], (err) => {
+//         if (err) {
+//             console.error(err);
+//             return res.status(500).send("Failed to update gndivision");
+//         }
+//         res.redirect("/gndivisions");
+//     });
+// };
+
+
 export const update = (req, res) => {
+
     const gndivision = req.body;
-    mydb.query("UPDATE gndivisions SET ? WHERE id = ?", [gndivision, req.params.id], (err) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).send("Failed to update gndivision");
+
+    mydb.query(
+        "UPDATE gndivisions SET ? WHERE id=?",
+        [gndivision, req.params.id],
+        (err, result) => {
+
+            if (err) throw err;
+
+            res.redirect("/gndivisions/" + req.params.id);
+
         }
-        res.redirect("/gndivisions");
-    });
+    );
+
 };
 
 export const destroy = (req, res) => {

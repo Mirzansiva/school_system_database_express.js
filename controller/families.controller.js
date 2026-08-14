@@ -55,16 +55,36 @@ export const store = (req, res) => {
     });
 };
 
+// export const update = (req, res) => {
+//     const family = req.body;
+//     mydb.query("UPDATE families SET ? WHERE id = ?", [family, req.params.id], (err) => {
+//         if (err) {
+//             console.error(err);
+//             return res.status(500).send("Failed to update family");
+//         }
+//         res.redirect("/families");
+//     });
+// };
+
+
 export const update = (req, res) => {
+
     const family = req.body;
-    mydb.query("UPDATE families SET ? WHERE id = ?", [family, req.params.id], (err) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).send("Failed to update family");
+
+    mydb.query(
+        "UPDATE families SET ? WHERE id=?",
+        [family, req.params.id],
+        (err, result) => {
+
+            if (err) throw err;
+
+            res.redirect("/families/" + req.params.id);
+
         }
-        res.redirect("/families");
-    });
+    );
+
 };
+
 
 export const destroy = (req, res) => {
     mydb.query("DELETE FROM families WHERE id = ?", [req.params.id], (err) => {
