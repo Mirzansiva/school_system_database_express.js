@@ -1,4 +1,4 @@
-
+<!-- 
 <h2>Add House</h2>
 
 <form action="/houses" method="POST" class="card p-4 shadow-sm">
@@ -12,4 +12,53 @@
   </div>
   <button type="submit" class="btn btn-success">Save</button>
   <a href="/houses" class="btn btn-secondary">Cancel</a>
-</form>
+</form> -->
+
+
+
+<div class="mx-auto max-w-2xl rounded-lg border border-slate-200 bg-white shadow-md">
+  <div class="border-b border-slate-200 px-6 py-4">
+    <h1 class="text-2xl font-bold text-slate-900">Create House</h1>
+    <p class="mt-1 text-sm text-slate-600">Add a new house to the system</p>
+  </div>
+
+  <form action="/houses" method="POST" class="p-6">
+    <div class="space-y-6">
+      <!-- House Name -->
+      <div>
+        <label for="house-name" class="block text-sm font-semibold text-slate-900">House Name</label>
+        <input
+          id="house-name"
+          type="text"
+          name="house_name"
+          autocomplete="off"
+          class="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        />
+      </div>
+
+      <!-- House Color -->
+      <div>
+        <label for="house-color" class="block text-sm font-semibold text-slate-900">House Color</label>
+        <input
+          id="house-color"
+          type="text"
+          name="house_color"
+          autocomplete="given-name"
+          class="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        />
+      </div>
+
+    <!-- Action Buttons -->
+    <div class="mt-8 flex items-center justify-end gap-4">
+      <a href="/houses" class="inline-flex items-center justify-center rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50">
+        Cancel
+      </a>
+      <button
+        type="submit"
+        class="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

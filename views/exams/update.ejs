@@ -1,4 +1,4 @@
-
+<!-- 
 <h2>Edit Exam</h2>
 
 <form action="/exams/<%= exam.id %>" method="POST" class="card p-4 shadow-sm">
@@ -8,4 +8,103 @@
   </div>
   <button type="submit" class="btn btn-success">Update</button>
   <a href="/exams" class="btn btn-secondary">Cancel</a>
-</form>
+</form> -->
+
+
+
+<div class="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
+  <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200 sm:p-8">
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold text-gray-900">Update an Exam</h2>
+      <p class="mt-1 text-sm text-gray-600">Update the exam details below.</p>
+    </div>
+
+    <form action="/exams/<%= exam.id %>" method="POST" class="space-y-6">
+      <div>
+        <label for="exam_name" class="block text-sm font-medium text-gray-900">Exam Name</label>
+        <div class="mt-2">
+          <input
+            id="exam_name"
+            type="text"
+            name="exam_name"
+            value="<%= exam.exam_name %>"
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="exam_year" class="block text-sm font-medium text-gray-900">Exam Year</label>
+        <div class="mt-2">
+          <input
+            id="exam_year"
+            type="text"
+            name="exam_year"
+            value="<%= exam.exam_year %>"
+            required
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="exam_term" class="block text-sm font-medium text-gray-900">Exam Term</label>
+        <div class="mt-2">
+          <input
+            id="exam_term"
+            type="text"
+            name="exam_term"
+            value="<%= exam.exam_term %>"
+            required
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+            <div>
+        <label for="start_date" class="block text-sm font-medium text-gray-900">Start Date</label>
+        <div class="mt-2">
+          <input
+            id="start_date"
+            type="text"
+            name="start_date"
+            value="<%= exam.start_date %>"
+            required
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+            <div>
+        <label for="end_date" class="block text-sm font-medium text-gray-900">End Date</label>
+        <div class="mt-2">
+          <input
+            id="end_date"
+            type="text"
+            name="end_date"
+            value="<%= exam.end_date %>"
+            required
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+
+
+      <div class="flex justify-end gap-4 pt-4">
+        <a
+          href="/exams"
+          class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        >
+          Cancel
+        </a>
+        <button
+          type="submit"
+          class="inline-flex items-center justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-
+<!-- 
 <h2>Edit GN Division</h2>
 
 <form action="/gndivisions/<%= gndivision.id %>" method="POST" class="card p-4 shadow-sm">
@@ -8,4 +8,88 @@
   </div>
   <button type="submit" class="btn btn-success">Update</button>
   <a href="/gndivisions" class="btn btn-secondary">Cancel</a>
-</form>
+</form> -->
+
+
+
+<div class="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
+  <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200 sm:p-8">
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold text-gray-900">Update a GN Division</h2>
+      <p class="mt-1 text-sm text-gray-600">Update the GN division details below.</p>
+    </div>
+
+    <form action="/gndivisions/<%= gndivision.id %>" method="POST" class="space-y-6">
+      <div>
+        <label for="ds_division_id" class="block text-sm font-medium text-gray-900">DS Division ID</label>
+        <div class="mt-2">
+          <input
+            id="ds_division_id"
+            type="text"
+            name="ds_division_id"
+            value="<%= gndivision.ds_division_id %>"
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="code" class="block text-sm font-medium text-gray-900">Code</label>
+        <div class="mt-2">
+          <input
+            id="code"
+            type="text"
+            name="code"
+            value="<%= gndivision.code %>"
+            required
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+
+       <div>
+        <label for="gn_name" class="block text-sm font-medium text-gray-900">Name</label>
+        <div class="mt-2">
+          <input
+            id="gn_name"
+            type="text"
+            name="gn_name"
+            value="<%= gndivision.gn_name %>"
+            required
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="population" class="block text-sm font-medium text-gray-900">Population</label>
+        <div class="mt-2">
+          <input
+            id="population"
+            type="text"
+            name="population"
+            value="<%= gndivision.population %>"
+            required
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <div class="flex justify-end gap-4 pt-4">
+        <a
+          href="/gndivisions"
+          class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        >
+          Cancel
+        </a>
+        <button
+          type="submit"
+          class="inline-flex items-center justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

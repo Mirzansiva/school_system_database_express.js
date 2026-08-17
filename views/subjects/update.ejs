@@ -1,4 +1,4 @@
-<h2>Edit Subject</h2>
+<!-- <h2>Edit Subject</h2>
 
 <form action="/subjects/<%= subject.id %>" method="POST">
     <div>
@@ -7,4 +7,101 @@
     </div>
 
     <button type="submit">Update Subject</button>
-</form>
+</form> -->
+
+
+<div class="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
+  <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200 sm:p-8">
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold text-gray-900">Update a Subject</h2>
+      <p class="mt-1 text-sm text-gray-600">Update the subject details below.</p>
+    </div>
+
+    <form action="/subjects/<%= subject.id %>" method="POST" class="space-y-6">
+      <div>
+        <label for="subject_name" class="block text-sm font-medium text-gray-900">Subject Name</label>
+        <div class="mt-2">
+          <input
+            id="subject_name"
+            type="text"
+            name="subject_name"
+            value="<%= subject.subject_name %>"
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="subject_index" class="block text-sm font-medium text-gray-900">Subject Index</label>
+        <div class="mt-2">
+          <input
+            id="subject_index"
+            type="text"
+            name="subject_index"
+            value="<%= subject.subject_index %>"
+            required
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="subject_order" class="block text-sm font-medium text-gray-900">Subject Order</label>
+        <div class="mt-2">
+          <input
+            id="subject_order"
+            type="text"
+            name="subject_order"
+            value="<%= subject.subject_order %>"
+            required
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="subject_number" class="block text-sm font-medium text-gray-900">Subject Number</label>
+        <div class="mt-2">
+          <input
+            id="subject_number"
+            type="text"
+            name="subject_number"
+            value="<%= subject.subject_number %>"
+            required
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+
+        <div>
+        <label for="subject_colour" class="block text-sm font-medium text-gray-900">Colour</label>
+        <div class="mt-2">
+          <input
+            id="colour"
+            type="text"
+            name="colour"
+            value="<%= subject.colour %>"
+            required
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <div class="flex justify-end gap-4 pt-4">
+        <a
+          href="/subjects"
+          class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        >
+          Cancel
+        </a>
+        <button
+          type="submit"
+          class="inline-flex items-center justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

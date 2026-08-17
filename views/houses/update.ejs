@@ -1,4 +1,4 @@
-
+<!-- 
 <h2>Edit House</h2>
 
 <form action="/houses/<%= house.id %>" method="POST" class="card p-4 shadow-sm">
@@ -12,4 +12,58 @@
   </div>
   <button type="submit" class="btn btn-success">Update</button>
   <a href="/houses" class="btn btn-secondary">Cancel</a>
-</form>
+</form> -->
+
+
+
+
+<div class="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
+  <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200 sm:p-8">
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold text-gray-900">Update a House</h2>
+      <p class="mt-1 text-sm text-gray-600">Update the house details below.</p>
+    </div>
+
+    <form action="/houses/<%= house.id %>" method="POST" class="space-y-6">
+      <div>
+        <label for="house_name" class="block text-sm font-medium text-gray-900">House Name</label>
+        <div class="mt-2">
+          <input
+            id="house_name"
+            type="text"
+            name="house_name"
+            value="<%= house.house_name %>"
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="house_color" class="block text-sm font-medium text-gray-900">House Color</label>
+        <div class="mt-2">
+          <input
+            id="house_color"
+            type="text"
+            name="house_color"
+            value="<%= house.house_color %>"
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+      <div class="flex justify-end gap-4 pt-4">
+        <a
+          href="/houses"
+          class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        >
+          Cancel
+        </a>
+        <button
+          type="submit"
+          class="inline-flex items-center justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

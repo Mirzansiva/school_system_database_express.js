@@ -1,4 +1,4 @@
-
+<!-- 
 <h2>Add DS Division</h2>
 
 <form action="/dsdivisions" method="POST" class="card p-4 shadow-sm">
@@ -8,4 +8,66 @@
   </div>
   <button type="submit" class="btn btn-success">Save</button>
   <a href="/dsdivisions" class="btn btn-secondary">Cancel</a>
-</form>
+</form> -->
+
+
+
+<div class="mx-auto max-w-2xl rounded-lg border border-slate-200 bg-white shadow-md">
+  <div class="border-b border-slate-200 px-6 py-4">
+    <h1 class="text-2xl font-bold text-slate-900">Create DS Division</h1>
+    <p class="mt-1 text-sm text-slate-600">Add a new DS division to the system</p>
+  </div>
+
+  <form action="/dsdivisions" method="POST" class="p-6">
+    <div class="space-y-6">
+      <!-- District ID -->
+      <div>
+        <label for="district-id" class="block text-sm font-semibold text-slate-900">District ID</label>
+        <input
+          id="district-id"
+          type="text"
+          name="district_id"
+          autocomplete="off"
+          class="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        />
+      </div>
+
+      <!-- Code -->
+      <div>
+        <label for="code" class="block text-sm font-semibold text-slate-900">Code</label>
+        <input
+          id="code"
+          type="text"
+          name="code"
+          autocomplete="given-name"
+          class="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        />
+      </div>
+
+      <!-- Name -->
+      <div>
+        <label for="name" class="block text-sm font-semibold text-slate-900">Name</label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          autocomplete="family-name"
+          class="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        />
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="mt-8 flex items-center justify-end gap-4">
+      <a href="/dsdivisions" class="inline-flex items-center justify-center rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50">
+        Cancel
+      </a>
+      <button
+        type="submit"
+        class="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

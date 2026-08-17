@@ -1,4 +1,4 @@
-
+<!-- 
 <h2>Family Details</h2>
 
 <div class="card shadow-sm">
@@ -8,5 +8,45 @@
     <p><strong>Father First Name:</strong> <%= family.fa_first_name %></p>
     <a href="/families" class="btn btn-secondary">Back</a>
     <a href="/families/<%= family.id %>/edit" class="btn btn-warning">Edit</a>
+  </div>
+</div> -->
+
+
+<div class="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+  <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200 sm:p-8">
+    <div class="mb-6 flex items-center justify-between gap-3">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-900">Family Details</h1>
+        <p class="mt-1 text-sm text-gray-600">View the family information below.</p>
+      </div>
+    </div>
+
+    <div class="overflow-hidden rounded-xl border border-gray-200">
+      <table class="min-w-full divide-y divide-gray-200">
+        <tbody class="divide-y divide-gray-200 bg-white">
+          <tr>
+            <td class="w-1/3 px-4 py-4 text-sm font-semibold text-gray-900">ID</td>
+            <td class="px-4 py-4 text-sm text-gray-700"><%= family.id %></td>
+          </tr>
+          <tr>
+            <td class="w-1/3 px-4 py-4 text-sm font-semibold text-gray-900">Mobile Number</td>
+            <td class="px-4 py-4 text-sm text-gray-700"><%= family.mobile_number %></td>
+          </tr>
+          <tr>
+            <td class="w-1/3 px-4 py-4 text-sm font-semibold text-gray-900">Father First Name</td>
+            <td class="px-4 py-4 text-sm text-gray-700"><%= family.fa_first_name %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-6 flex items-center justify-end gap-4">
+      <a href="/families" class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        Cancel
+      </a>
+      <a href="/families/<%= family.id %>/edit" class="inline-flex items-center justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        Edit
+      </a>
+    </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="px-4 sm:px-6 lg:px-8">
   <div class="sm:flex sm:items-center">
     <div class="sm:flex-auto">
@@ -43,4 +43,54 @@
       </div>
     </div>
   </div>
+</div> -->
+
+
+
+<div class="mx-auto max-w-6xl rounded-lg bg-white shadow-md">
+  <div class="border-b border-slate-200 px-6 py-4 sm:flex sm:items-center sm:justify-between">
+    <div>
+      <h1 class="text-2xl font-bold text-slate-900">Houses</h1>
+      <p class="mt-1 text-sm text-slate-600">A list of all houses in your system.</p>
+    </div>
+    <div class="mt-4 sm:mt-0">
+      <a href="/houses/new"
+        class="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        + Create House
+      </a>
+    </div>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="w-full divide-y divide-slate-200">
+      <thead class="bg-slate-50">
+        <tr>
+          <th class="px-6 py-3 text-left text-sm font-semibold text-slate-900">ID</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold text-slate-900">House Name</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold text-slate-900">House color</th>
+          <th class="px-6 py-3 text-right text-sm font-semibold text-slate-900">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-slate-200 bg-white">
+        <% houses.forEach((house) => { %>
+        <tr class="hover:bg-slate-50">
+          <td class="px-6 py-4 text-sm font-medium text-slate-900"><%= house.id %></td>
+          <td class="px-6 py-4 text-sm text-slate-600"><%= house.house_name %></td>
+          <td class="px-6 py-4 text-sm text-slate-600"><%= house.house_color %></td>
+          <td class="px-6 py-4 text-right text-sm font-medium">
+            <div class="flex justify-end gap-3">
+              <a href="/houses/<%= house.id %>"
+                class="text-indigo-600 transition hover:text-indigo-800">Show</a>
+              <a href="/houses/<%= house.id %>/edit"
+                class="text-indigo-600 transition hover:text-indigo-800">Edit</a>
+              <a href="/houses/<%= house.id %>/delete"
+                class="text-red-600 transition hover:text-red-800">Delete</a>
+            </div>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
 </div>
+

@@ -1,4 +1,4 @@
-
+<!-- 
 <h2>Edit Family</h2>
 
 <form action="/families/<%= family.id %>" method="POST" class="card p-4 shadow-sm">
@@ -12,4 +12,59 @@
   </div>
   <button type="submit" class="btn btn-success">Update</button>
   <a href="/families" class="btn btn-secondary">Cancel</a>
-</form>
+</form> -->
+
+
+<div class="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
+  <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200 sm:p-8">
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold text-gray-900">Update a Family</h2>
+      <p class="mt-1 text-sm text-gray-600">Update the family details below.</p>
+    </div>
+
+    <form action="/families/<%= family.id %>" method="POST" class="space-y-6">
+      <div>
+        <label for="mobile-number" class="block text-sm font-medium text-gray-900">Mobile Number</label>
+        <div class="mt-2">
+          <input
+            id="mobile-number"
+            type="text"
+            name="mobile_number"
+            value="<%= family.mobile_number %>"
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="fa_first_name" class="block text-sm font-medium text-gray-900">Father First Name</label>
+        <div class="mt-2">
+          <input
+            id="fa_first_name"
+            type="text"
+            name="fa_first_name"
+            value="<%= family.fa_first_name %>"
+            required
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+      </div>
+
+      <div class="flex justify-end gap-4 pt-4">
+        <a
+          href="/families"
+          class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        >
+          Cancel
+        </a>
+        <button
+          type="submit"
+          class="inline-flex items-center justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

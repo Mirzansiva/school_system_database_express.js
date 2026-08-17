@@ -65,11 +65,11 @@ export const store = (req, res) => {
 
 export const update = (req, res) => {
 
-    const { gn_code } = req.body;
+    const address = req.body;
 
     mydb.query(
-        "UPDATE addresses SET gn_code = ? WHERE gn_id = ?",
-        [gn_code, req.params.id],
+        "UPDATE addresses SET ? WHERE gn_id = ?",
+        [address, req.params.id],
         (err) => {
 
             if (err) {

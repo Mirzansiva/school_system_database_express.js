@@ -1,4 +1,4 @@
-<h2>Add New Grade</h2>
+<!-- <h2>Add New Grade</h2>
 
 <form action="/grades" method="POST">
     <div>
@@ -13,4 +13,66 @@
 
     <button type="submit">Save Grade</button>
 </form>
- 
+  -->
+
+
+
+  <div class="mx-auto max-w-2xl rounded-lg border border-slate-200 bg-white shadow-md">
+  <div class="border-b border-slate-200 px-6 py-4">
+    <h1 class="text-2xl font-bold text-slate-900">Create Grade</h1>
+    <p class="mt-1 text-sm text-slate-600">Add a new grade to the system</p>
+  </div>
+
+  <form action="/grades" method="POST" class="p-6">
+    <div class="space-y-6">
+      <!-- GN Code -->
+      <div>
+        <label for="grade_name" class="block text-sm font-semibold text-slate-900">Grade Name</label>
+        <input
+          id="grade_name"
+          type="text"
+          name="grade_name"
+          autocomplete="off"
+          class="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        />
+      </div>
+
+      <!-- Grade Group -->
+      <div>
+        <label for="grade_group" class="block text-sm font-semibold text-slate-900">Grade Group</label>
+        <input
+          id="grade_group"
+          type="text"
+          name="grade_group"
+          autocomplete="given-name"
+          class="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        />
+      </div>
+
+      <!-- Colour -->
+      <div>
+        <label for="colour" class="block text-sm font-semibold text-slate-900">Colour</label>
+        <input
+          id="colour"
+          type="text"
+          name="colour"
+          autocomplete="family-name"
+          class="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        />
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="mt-8 flex items-center justify-end gap-4">
+      <a href="/grades" class="inline-flex items-center justify-center rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50">
+        Cancel
+      </a>
+      <button
+        type="submit"
+        class="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,12 +1,83 @@
-
-
-<h2>Add Exam</h2>
-
-<form action="/exams" method="POST" class="card p-4 shadow-sm">
-  <div class="mb-3">
-    <label class="form-label">Name</label>
-    <input type="text" name="name" class="form-control" required>
+<div class="mx-auto max-w-2xl rounded-lg border border-slate-200 bg-white shadow-md">
+  <div class="border-b border-slate-200 px-6 py-4">
+    <h1 class="text-2xl font-bold text-slate-900">Create Exams</h1>
+    <p class="mt-1 text-sm text-slate-600">Add a new exam to the system</p>
   </div>
-  <button type="submit" class="btn btn-success">Save</button>
-  <a href="/exams" class="btn btn-secondary">Cancel</a>
-</form>
+
+  <form action="/exams" method="POST" class="p-6">
+    <div class="space-y-6">
+      <!-- Exam Name -->
+      <div>
+        <label for="exam-name" class="block text-sm font-semibold text-slate-900">Exam Name</label>
+        <input
+          id="exam-name"
+          type="text"
+          name="exam_name"
+          autocomplete="off"
+          class="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        />
+      </div>
+
+      <!-- Exam Year -->
+      <div>
+        <label for="exam-year" class="block text-sm font-semibold text-slate-900">Exam Year</label>
+        <input
+          id="exam-year"
+          type="text"
+          name="exam_year"
+          autocomplete="given-name"
+          class="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        />
+      </div>
+
+      <!-- Exam Term -->
+      <div>
+        <label for="exam-term" class="block text-sm font-semibold text-slate-900">Exam Term</label>
+        <input
+          id="exam-term"
+          type="text"
+          name="exam_term"
+          autocomplete="family-name"
+          class="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        />
+      </div>
+
+          <!-- Start Date -->
+      <div>
+        <label for="start-date" class="block text-sm font-semibold text-slate-900">Start Date</label>
+        <input
+          id="start-date"
+          type="text"
+          name="start_date"
+          autocomplete="family-name"
+          class="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        />
+      </div>
+
+          <!-- End Date -->
+      <div>
+        <label for="end_date" class="block text-sm font-semibold text-slate-900">End Date</label>
+        <input
+          id="end_date"
+          type="text"
+          name="end_date"
+          autocomplete="family-name"
+          class="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        />
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="mt-8 flex items-center justify-end gap-4">
+      <a href="/exams" class="inline-flex items-center justify-center rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50">
+        Cancel
+      </a>
+      <button
+        type="submit"
+        class="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

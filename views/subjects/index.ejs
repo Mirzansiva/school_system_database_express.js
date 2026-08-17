@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="px-4 sm:px-6 lg:px-8">
   <div class="sm:flex sm:items-center">
     <div class="sm:flex-auto">
@@ -39,5 +39,62 @@
         </table>
       </div>
     </div>
+  </div>
+</div> -->
+
+
+
+
+
+<div class="mx-auto max-w-6xl rounded-lg bg-white shadow-md">
+  <div class="border-b border-slate-200 px-6 py-4 sm:flex sm:items-center sm:justify-between">
+    <div>
+      <h1 class="text-2xl font-bold text-slate-900">Subjects</h1>
+      <p class="mt-1 text-sm text-slate-600">A list of all subjects in your system.</p>
+    </div>
+    <div class="mt-4 sm:mt-0">
+      <a href="/subjects/new"
+        class="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        + Create Subject
+      </a>
+    </div>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="w-full divide-y divide-slate-200">
+      <thead class="bg-slate-50">
+        <tr>
+          <th class="px-6 py-3 text-left text-sm font-semibold text-slate-900">ID</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold text-slate-900">Subject Name</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold text-slate-900">Subject Index</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold text-slate-900">Subject order</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold text-slate-900">Subject Number</th>
+          <th class="px-6 py-3 text-left text-sm font-semibold text-slate-900">Colour</th>
+          <th class="px-6 py-3 text-right text-sm font-semibold text-slate-900">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-slate-200 bg-white">
+        <% subjects.forEach((subject) => { %>
+        <tr class="hover:bg-slate-50">
+          <td class="px-6 py-4 text-sm font-medium text-slate-900"><%= subject.id %></td>
+          <td class="px-6 py-4 text-sm text-slate-600"><%= subject.subject_name %></td>
+          <td class="px-6 py-4 text-sm text-slate-600"><%= subject.subject_index %></td>
+          <td class="px-6 py-4 text-sm text-slate-600"><%= subject.subject_order %></td>
+          <td class="px-6 py-4 text-sm text-slate-600"><%= subject.subject_number %></td>
+          <td class="px-6 py-4 text-sm text-slate-600"><%= subject.colour %></td>
+          <td class="px-6 py-4 text-right text-sm font-medium">
+            <div class="flex justify-end gap-3">
+              <a href="/subjects/<%= subject.id %>"
+                class="text-indigo-600 transition hover:text-indigo-800">Show</a>
+              <a href="/subjects/<%= subject.id %>/edit"
+                class="text-indigo-600 transition hover:text-indigo-800">Edit</a>
+              <a href="/subjects/<%= subject.id %>/delete"
+                class="text-red-600 transition hover:text-red-800">Delete</a>
+            </div>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
   </div>
 </div>

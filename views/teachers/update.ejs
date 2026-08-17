@@ -1,4 +1,4 @@
-<h2>Edit Teacher</h2>
+<!-- <h2>Edit Teacher</h2>
 
 <form action="/teachers/<%= teacher.id %>" method="POST">
     <div>
@@ -17,4 +17,164 @@
     </div>
 
     <button type="submit">Update Teacher</button>
-</form>
+</form> -->
+
+
+
+
+<div class="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
+  <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200 sm:p-8">
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold text-gray-900">Update Teacher</h2>
+      <p class="mt-1 text-sm text-gray-600">Update the teacher details below.</p>
+    </div>
+
+    <form action="/teachers/<%= teacher.id %>" method="POST" class="space-y-6">
+      <div>
+        <label for="registration_number" class="block text-sm font-medium text-gray-900">Registration Number</label>
+        <div class="mt-2">
+          <input
+            id="registration_number"
+            type="text"
+            name="registration_number"
+            value="<%= teacher.registration_number %>"
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+        <div>
+        <label for="nic_number" class="block text-sm font-medium text-gray-900">NIC Number</label>
+        <div class="mt-2">
+          <input
+            id="nic_number"
+            type="text"
+            name="nic_number"
+            value="<%= teacher.nic_number %>"
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="first_name" class="block text-sm font-medium text-gray-900">First Name</label>
+        <div class="mt-2">
+          <input
+            id="first_name"
+            type="text"
+            name="first_name"
+            value="<%= teacher.first_name %>"
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="last_name" class="block text-sm font-medium text-gray-900">Last Name</label>
+        <div class="mt-2">
+          <input
+            id="last_name"
+            type="text"
+            name="last_name"
+            value="<%= teacher.last_name %>"
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="gender" class="block text-sm font-medium text-gray-900">Gender</label>
+        <div class="mt-2">
+          <input
+            id="gender"
+            type="text"
+            name="gender"
+            value="<%= teacher.gender %>"
+            required
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+        <div>
+        <label for="title" class="block text-sm font-medium text-gray-900">Title</label>
+        <div class="mt-2">
+          <input
+            id="title"
+            type="text"
+            name="title"
+            value="<%= teacher.title %>"
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+        <div>
+        <label for="date_of_birth" class="block text-sm font-medium text-gray-900">Date of Birth</label>
+        <div class="mt-2">
+          <input
+            id="date_of_birth"
+            type="text"
+            name="date_of_birth"
+            value="<%= teacher.date_of_birth %>"
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+        <div>
+        <label for="permanent_address" class="block text-sm font-medium text-gray-900">Permanent Address</label>
+        <div class="mt-2">
+          <input
+            id="permanent_address"
+            type="text"
+            name="permanent_address"
+            value="<%= teacher.permanent_address %>"
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+        <div>
+        <label for="mobile_number" class="block text-sm font-medium text-gray-900">Mobile Number</label>
+        <div class="mt-2">
+          <input
+            id="mobile_number"
+            type="text"
+            name="mobile_number"
+            value="<%= teacher.mobile_number %>"
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+        <div>
+        <label for="date_of_first_appointment" class="block text-sm font-medium text-gray-900">Date of First Appointment</label>
+        <div class="mt-2">
+          <input
+            id="date_of_first_appointment"
+            type="text"
+            name="date_of_first_appointment"
+            value="<%= teacher.date_of_first_appointment %>"
+            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <div class="flex justify-end gap-4 pt-4">
+        <a
+          href="/teachers"
+          class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        >
+          Cancel
+        </a>
+        <button
+          type="submit"
+          class="inline-flex items-center justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
